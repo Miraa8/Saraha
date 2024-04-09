@@ -22,7 +22,7 @@ app.use(
     secret: "keyboard cat ghjn",
     resave: false,
     saveUninitialized: true,
-    store
+    store,
     // cookie: { secure: true },
   })
 );
@@ -31,6 +31,11 @@ app.use(registerRouter);
 app.use(loginRouter);
 app.use(messageRouter);
 app.use(userRouter);
+app.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/login")
+  });
+});
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 });
