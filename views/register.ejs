@@ -5,9 +5,12 @@
             <h4 class="login">Register</h4>
         </div>
         <% if (error) { %>
-         <div class="alert alert-danger w-50 mx-auto">
+         <div class="alert alert-danger w-50  mx-auto">
            <%= error  %>
          </div>
+        <% } %>
+        <% for( let index = 0; index < err.length; index++ ) { %>
+        <div class="alert alert-danger my-2 mx-auto w-50"><%=err[index].message%></div>
         <% } %>
        
         <div class="card p-5 w-50 m-auto">
@@ -15,7 +18,6 @@
                 <input class="form-control" placeholder="Enter your Name" type="text" name="name">
                 <input class="form-control my-2 " placeholder="Enter your email" type="email" name="email">
                 <input class="form-control  " placeholder="Enter your Password" type="password" name="password">
-                <input class="form-control  my-2" placeholder="Password Confirmation" type="password" name="PasswordConfirmation">
                 <button class="btn btn-default-outline my-4 w-100 rounded">Register</button>
                 <a class="btn btn-default-outline" href="/login">Login</a>
             </form>

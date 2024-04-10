@@ -1,23 +1,30 @@
 <%- include('./shared/header.ejs') %>
-   <div class="container text-center py-5 my-5 text-center">
-        <div class="card py-5 mb-5">
-            <a href="" data-toggle="modal" data-target="#profile">
-                <img src="/img/avatar.png" class="avatar " alt="">
-
-            </a>
-            <h3 class="py-2"><%=userName  %></h3>
-            <div class="container w-50 m-auto">
-                <form   method="post" action="/handleUser/<%=userId%>">
-                    <textarea class="form-control" name="message" id="" cols="10" rows="9" placeholder="You cannot send a Sarahah to yourself, share your profile with your friends :)"></textarea>
-                    <button class="btn btn-outline-info mt-3"><i class="far fa-paper-plane"></i> Send</button>
-                </form>
-            </div>
-        </div>
-        
+<div class="container text-center py-5 my-5 text-center">
+  <div class="card py-5 mb-5">
+    <a href="" data-toggle="modal" data-target="#profile">
+      <img src="/img/avatar.png" class="avatar" alt="" />
+    </a>
+    <% if (err) { %>
+    <div class="alert alert-danger my-2 w-50 mx-auto"><%= err %></div>
+    <% } %>
+     
+    <h3 class="py-2"><%=userName %></h3>
+    <div class="container w-50 m-auto">
+      <form method="post" action="/handleUser/<%=userId%>">
+        <textarea
+          class="form-control"
+          name="message"
+          id=""
+          cols="10"
+          rows="9"
+          placeholder="You cannot send a Sarahah to yourself, share your profile with your friends :)"
+        ></textarea>
+        <button class="btn btn-outline-info mt-3">
+          <i class="far fa-paper-plane"></i> Send
+        </button>
+      </form>
     </div>
+  </div>
+</div>
 
-
-    
 <%- include('./shared/footer.ejs') %>
-
-   

@@ -7,6 +7,7 @@ import messageRouter from "./src/message/message.routes.js";
 import userRouter from "./src/user/user.routes.js";
 import session from "express-session";
 import MongoSession from "connect-mongodb-session";
+import flash from "connect-flash";
 const MongoDBStore = MongoSession(session);
 var store = new MongoDBStore({
   uri: "mongodb://127.0.0.1:27017/Saraha",
@@ -26,6 +27,7 @@ app.use(
     // cookie: { secure: true },
   })
 );
+app.use(flash());
 app.use(homeRouter);
 app.use(registerRouter);
 app.use(loginRouter);
