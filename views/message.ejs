@@ -2,7 +2,7 @@
 <div class="container text-center py-5 my-5 text-center">
   <div class="card pt-5">
     <a href="" data-toggle="modal" data-target="#profile">
-      <img src="img/avatar.png" class="avatar" alt="" />
+      <img src=<%=pic%> class="avatar" alt="" />
     </a>
     <h3 class="py-2"><%=session.userName%></h3>
     <button
@@ -37,20 +37,22 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <form action="" method="post">
+          <form action="/profilePic" method="post" enctype="multipart/form-data">
+           
             <label for="" class="text-muted"
               >The file size of the photo should not exceed 7 MB</label
             >
-            <input class="form-control" type="file" name="photo" id="" />
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-info">Upload</button>
+            <input class="form-control" type="file" name="pic" id="" />
+             <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-info">Upload</button>
         <button type="button" class="btn btn-outline-danger">
           Remove Photo
         </button>
       </div>
+          </form>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

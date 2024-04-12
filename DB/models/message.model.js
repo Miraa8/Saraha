@@ -1,8 +1,8 @@
 import { Schema,Types,model } from "mongoose";
 
-const meassageSchema = new Schema({
+const messageSchema = new Schema({
     user:{type:Types.ObjectId,ref:"user"},
     message:String
 })
 
-export const Message = model('Meassage',meassageSchema)
+export const Message = model('Message',messageSchema)

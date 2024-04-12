@@ -8,8 +8,11 @@ import userRouter from "./src/user/user.routes.js";
 import session from "express-session";
 import MongoSession from "connect-mongodb-session";
 import flash from "connect-flash";
+import dotenv from "dotenv";
+
+dotenv.config();
 const MongoDBStore = MongoSession(session);
-var store = new MongoDBStore({
+const store = new MongoDBStore({
   uri: "mongodb://127.0.0.1:27017/Saraha",
   collection: "mySessions",
 });
@@ -35,7 +38,7 @@ app.use(messageRouter);
 app.use(userRouter);
 app.get("/logout", (req, res) => {
   req.session.destroy(() => {
-    res.redirect("/login")
+    res.redirect("/login");
   });
 });
 app.listen(port, () => {

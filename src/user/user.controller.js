@@ -1,4 +1,4 @@
-import { Message } from "../../DB/models/meassage.model.js";
+import { Message } from "../../DB/models/message.model.js";
 import { User } from "../../DB/models/user.model.js";
 import Joi from "joi";
 export const userController = async (req, res) => {
@@ -20,3 +20,4 @@ export const handleUser = async(req, res) => {
   return res.redirect(`/user/${req.params.id}`);
     
 };
+
