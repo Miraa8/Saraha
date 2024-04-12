@@ -2,7 +2,11 @@ import { User } from "../../DB/models/user.model.js";
 import Joi from "joi";
 
 export const registerController = (req, res) => {
-  res.render("register.ejs", { error: req.query?.error, session: req.session ,err:req.flash("info")});
+  res.render("register.ejs", {
+    error: req.query?.error,
+    session: req.session,
+    err: req.flash("info"),
+  });
 };
 const registrationSchema = Joi.object({
   name: Joi.string().required(),
@@ -17,7 +21,6 @@ export const handleRegister = async (req, res) => {
     User.insertMany(req.body);
     return res.redirect("login");
   }
-  req.flash("info",error?.details);
+  req.flash("info", error?.details);
   return res.redirect("register");
-
 };

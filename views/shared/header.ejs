@@ -36,7 +36,9 @@
           <ul class="navbar-nav ml-auto">
             <% if (session?.isLoggedIn) { %>
             <li class="nav-item">
-              <a class="nav-link">Welcome <%=session?.userName.toLowerCase()%></a>
+              <a class="nav-link"
+                >Welcome <%=session?.userName.toLowerCase()%></a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/logout">Logout</a>

@@ -16,7 +16,6 @@ export const messageController = async (req, res) => {
   });
 };
 export const profilePic = async (req, res) => {
-    console.log(req.file);
   const id = req.session.userId;
   const { secure_url, public_id } = await cloudinary.uploader.upload(
     req.file.path,

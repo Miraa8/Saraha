@@ -1,8 +1,8 @@
-import { Schema,Types,model } from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 const messageSchema = new Schema({
-    user:{type:Types.ObjectId,ref:"user"},
-    message:String
-})
+  user: { type: Types.ObjectId, ref: "user" },
+  message: String,
+});
 
-export const Message = model('Message',messageSchema)
+export const Message = model("Message", messageSchema);
